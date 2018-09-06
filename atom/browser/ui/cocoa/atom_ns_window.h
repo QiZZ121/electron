@@ -7,6 +7,7 @@
 
 #include "brightray/browser/mac/event_dispatching_window.h"
 #include "ui/views/cocoa/native_widget_mac_nswindow.h"
+#include "ui/views/widget/native_widget_mac.h"
 
 namespace atom {
 
@@ -39,6 +40,8 @@ class ScopedDisableResize {
 @property(nonatomic, retain) NSView* vibrantView;
 - (id)initWithShell:(atom::NativeWindowMac*)shell
           styleMask:(NSUInteger)styleMask;
+- (id)accessibilityFocusedUIElement;
+- (id)rootAccessibilityObject;
 - (atom::NativeWindowMac*)shell;
 - (NSRect)originalContentRectForFrameRect:(NSRect)frameRect;
 - (void)enableWindowButtonsOffset;

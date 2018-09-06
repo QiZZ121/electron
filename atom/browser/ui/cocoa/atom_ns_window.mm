@@ -7,6 +7,7 @@
 #include "atom/browser/native_window_mac.h"
 #include "atom/browser/ui/cocoa/atom_preview_item.h"
 #include "atom/browser/ui/cocoa/atom_touch_bar.h"
+#include "atom/browser/ui/cocoa/root_view_mac.h"
 #include "ui/base/cocoa/window_size_constants.h"
 
 namespace atom {
@@ -37,6 +38,14 @@ bool ScopedDisableResize::disable_resize_ = false;
 
 - (atom::NativeWindowMac*)shell {
   return shell_;
+}
+
+- (id)accessibilityFocusedUIElement {
+  return self;
+}
+
+- (id)rootAccessibilityObject {
+  return nil;
 }
 
 - (NSRect)originalContentRectForFrameRect:(NSRect)frameRect {
